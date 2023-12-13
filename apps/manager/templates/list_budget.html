@@ -1,0 +1,39 @@
+{% extends "base_templates/general_base.html" %}
+{% load humanize %}
+
+{% block 'head' %}{% endblock 'head' %}
+
+{% block 'body' %}
+
+    {% include "partials/manager/navbar.html" %}
+
+    <div class="container">
+
+        <br>
+        <br>
+
+        <table class="table table-dark table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Cliente</th>
+                <th scope="col">Status</th>
+                <th scope="col">Data</th>
+                <th scope="col">Data máxima orçamento</th>
+                <th scope="col">Urgencia</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for budget in budgets %}
+                    <tr>
+                        <th>{{budget.client}}</th>
+                        <td>{{budget.get_status_display}}</td>
+                        <td>{{budget.data}}</td>
+                        <td>{{budget.max_date|naturaltime}}</td>
+                        <td>{{budget.urgency}}</td>
+                    </tr>
+                    {% endfor %}
+            </tbody>
+          </table>
+    </div>
+{% endblock 'body' %}
+

@@ -31,9 +31,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 
     #MyApps
     'authenticacao',
+    'services',
+    'manager',
+
+    # 3 apps
+    'rolepermissions',
+    'tinymce'
 ]
 
 MIDDLEWARE = [
@@ -151,3 +158,8 @@ if DEBUG:
 else:
     #TODO: Configurar envio de emails
     pass
+
+
+# Role permissions
+
+ROLEPERMISSIONS_MODULE = 'ediv.roles'
